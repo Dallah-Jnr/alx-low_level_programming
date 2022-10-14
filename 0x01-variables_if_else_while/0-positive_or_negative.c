@@ -10,6 +10,7 @@
  *
  * Return: 0 if execution success
  */
+
 int main(void)
 {
 	int n;
