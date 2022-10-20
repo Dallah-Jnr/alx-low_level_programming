@@ -1,6 +1,6 @@
 /**
  * File: 1-isdigit.c
- * Auth: Maya
+ * Auth: Dallah-Jnr
  */
 
 #include "main.h"
