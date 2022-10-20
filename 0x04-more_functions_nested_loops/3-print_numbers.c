@@ -10,7 +10,7 @@ void print_numbers(void)
 
 	for (i = 0; i < 10; i++)
 	{
-		putchar("i: %d", 0);
+		putchar(i + '0');
 	}
 
 	putchar('\n');
