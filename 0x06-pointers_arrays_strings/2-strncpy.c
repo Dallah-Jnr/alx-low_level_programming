@@ -2,9 +2,11 @@
 
 /**
  * _strncpy - Copy a string
+ *
  * @dest: destination
  * @src: source
- * @n: limit*
+ * @n: limit
+ *
  * Return: concataned string
  */
 
