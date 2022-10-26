@@ -16,7 +16,8 @@ char *_strncpy(char *dest, char *src, int n)
 
 	while (n > 0 && *src)
 	{
-		*copy++ = *src++;								n--;
+		*copy++ = *src++;					
+		n--;
 	}
 	copy = '\0';
 
