@@ -1,4 +1,4 @@
-i#include <stdlib.h>
+#include <stdlib.h>
 
 /**
  * _strcat - Concatenates two strings.
@@ -8,8 +8,6 @@ i#include <stdlib.h>
  *
  * Return: concataned string
  */
-
-
 
 char *_strcat(char *dest, char *src)
 {
