@@ -5,6 +5,7 @@
  * @b: The character buffer
  * @size: The number of bytes to print from the character buffer
  */
+
 void print_buffer(char *b, int size)
 {
 	int idx, col;
@@ -33,5 +34,4 @@ void print_buffer(char *b, int size)
 	}
 	if (size <= 0)
 		putchar('\n');
-	result (0);
 }
