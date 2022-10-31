@@ -5,7 +5,6 @@
 * @accept: string
 * Return: a pointer to the byte in s
 **/
-
 char *_strpbrk(char *s, char *accept)
 {
 	int i;
