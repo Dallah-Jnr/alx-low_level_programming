@@ -1,31 +1,61 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_print - prints a hash table
- * @ht: hash table to print
+ * free_list - Free a list.
  *
- * Return: void
+ * @head: Pointer to the head of a linked list
+ *
+ * Return: Void.
  */
-void hash_table_print(const hash_table_t *ht)
-{
-	unsigned long int i;
-	hash_node_t *tmp;
-	char flag = 0; /* 0 while no data has been printed yet */
 
-	if (ht == NULL || ht->array == NULL)
+void free_list(hash_node_t *head)
+{
+	hash_node_t *placeholder_head = NULL;
+
+	if (!head)
 		return;
-	printf("{");
-	for (i = 0; i < ht->size; i++)
+
+	while (head)
 	{
-		tmp = ht->array[i];
-		while (tmp != NULL)
-		{
-			if (flag == 1)
-				printf(", ");
-			printf("'%s': '%s'", tmp->key, tmp->value);
-			flag = 1;
-			tmp = tmp->next;
-		}
+		placeholder_head = head;
+		if (head->key)
+			free(head->key);
+		if (head->value)
+			free(head->value);
+		head = head->next;
+		free(placeholder_head);
 	}
-	printf("}\n");
+}
+
+
+/**
+ * hash_table_delete - Deletes a hash table
+ *
+ * @ht: Pointer to the hash table (hash_table_t *)
+ *
+ * Return: Void.
+ */
+
+void hash_table_delete(hash_table_t *ht)
+{
+	unsigned long int i = 0;
+	hash_node_t **node = NULL;
+	hash_node_t *list = NULL;
+
+	if (!ht)
+		return;
+
+	if (!ht->array)
+	{
+		free(ht);
+		return;
+	}
+
+	node = ht->array;
+
+	for (; i < ht->size; i++)
+		list = node[i], free_list(list);
+
+	free(ht->array);
+	free(ht);
 }
